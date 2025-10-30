@@ -123,4 +123,27 @@ class Game {
         currentPlayer = Mark.X
         gameState = GameState.IN_GAME
     }
+
+    /**
+     * Create a deep copy of the current game state
+     * Used for AI move simulation without affecting the actual game
+     *
+     * @return A new Game instance with the same state as this one
+     */
+    fun copy(): Game {
+        val newGame = Game()
+        val currentBoardState = board.getState();
+
+        for (i in 1..9) {
+            val mark = currentBoardState[i - 1]
+            if (mark != null) {
+                newGame.board.placeMark(i, mark)
+            }
+        }
+
+        newGame.currentPlayer = this.currentPlayer
+        newGame.gameState = this.gameState
+
+        return newGame
+    }
 }
