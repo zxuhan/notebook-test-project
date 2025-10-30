@@ -1,73 +1,67 @@
-# Test Project for Notebook Team Interns
+# Notebook Test Project
 
-**Task Description:**
+This project provides a flexible Tic-Tac-Toe library that handles game logic while allowing developers to create their own UI, and a simple CLI game.
 
-Your task is to implement a Tic-Tac-Toe library that is able to drive a
-game of Tic-Tac-Toe, but leaves it up to users of the library to create the
-UI. 
+## Project Structure
 
-After you have implemented the library, you must use it to create a simple
-command line game of Tic-Tac-Toe.
+```
+├── lib/                          # Library files for Tic-Tac-Toe game logic
+│   ├── Board.kt                  # Board representation and operations
+│   ├── Game.kt                   # Game logic
+│   ├── Mark.kt                   # Player mark enum (X/O)
+│   ├── GameState.kt              # Game state enum (IN_GAME, X_WON, O_WON, DRAW)
+│   ├── Player.kt                 # Player data class
+│   ├── PlayerType.kt             # Player type enum (HUMAN, COMPUTER_RANDOM, COMPUTER_AI)
+│   └── ComputerPlayer.kt         # AI computer opponents
+│
+├── app/ 
+│   ├── main.kt                   # CLI game implementation
+```
 
-It should have the following features:
+## How to Play the CLI Game
 
-1. When starting the game, it should request the names of Player X and 
-   Player 0.
+### Starting the Game
 
-2. It should print the initial state of the board when players have been named.
+Run the `main.kt` file to start the command-line game:
 
-3. Each player should then switch choosing a position on the board, placing
-   their mark. 
+```bash
+kotlinc main.kt -include-runtime -d tictactoe.jar
+java -jar tictactoe.jar
+```
 
-4. The game should print the updated board after each player has placed a mark.
+Or run directly in your Kotlin IDE.
 
-5. When the game is over, the game should print the result of the game.
+### Game Setup
 
-**Bonus Features:**
+When you start the game, you'll choose from three game modes:
 
-6. Make the player type configurable, I.e., it should be possible to choose
-   whether one or both of the players are a human or a computer. The computer
-   can just place marks at random.
+1. **Human vs Human** - Two players take turns on the same computer
+2. **Human vs Computer (Random)** - Play against a computer that makes random moves
+3. **Human vs Computer (AI)** - Play against an intelligent AI opponent using minimax algorithm
 
-7. Make the computer opponent a real AI, making intelligent decisions.
+Enter player names when prompted.
 
-8. Create a Kotlin Notebook that demonstrates how to use the library.
+### Playing
 
+- The board is numbered 1-9:
+  ```
+  1 | 2 | 3
+  ---------
+  4 | 5 | 6
+  ---------
+  7 | 8 | 9
+  ```
+- Player X always goes first
+- Enter a number (1-9) to place your mark in that position
+- The game ends when a player gets three in a row or the board is full (draw)
+- After each game, choose to play again or quit
 
-If you have any questions, please contact christian.melchior@jetbrains.com.
+### Winning
 
+Get three of your marks in a row - horizontally, vertically, or diagonally.
 
-**Evaluation Criteria:**
+## How to Use the Library
 
-1. Does the code work?
-2. Is the code readable?
-3. Is the code documented?
-4. Are there tests and are they passing?
-5. How easy is it to extend the code with new player types or display formats?
+The library provides clean separation between game logic and UI, allowing you to build any interface you want.
 
-It is more important to make the code readable, documented and tested
-than implementing new features.
-
-
-**Prepare to discuss the following topics:**
-
-- Why does your implementation work?
-
-- Why did you choose your particular implementation? What alternatives did 
-  you consider?
-
-- What are the advantages and disadvantages of your particular implementation?
-
-- Why did you choose the approach to testing you did? What are the advantages 
-  and disadvantages of your particular approach?
-
-It is perfectly fine to use Google, Stack Overflow, OpenAI, Cursor or any other
-resource to solve the problem, but you should be prepared to explain your
-approach to the interviewer.
-
-
-
-
-
-
-
+Examples are availale at Kotlin Notebook [`tictactoe-libray.ipynb`](./tictactoe-libray.ipynb)
