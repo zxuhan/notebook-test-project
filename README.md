@@ -64,4 +64,4 @@ Get three of your marks in a row - horizontally, vertically, or diagonally.
 
 The library provides clean separation between game logic and UI, allowing you to build any interface you want.
 
-Examples are availale at Kotlin Notebook [`tictactoe-libray.ipynb`](./tictactoe-libray.ipynb)
+Examples are availale at Kotlin Notebook [`tictactoe-library.ipynb`](./tictactoe-library.ipynb)
